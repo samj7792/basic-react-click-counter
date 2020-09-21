@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from "react";
+import Counter from "./Counter";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    clicks: 0,
+  };
+
+  incr = () => {
+    this.setState({ clicks: this.state.clicks + 1 });
+  };
+
+  render() {
+    return (
+      <Fragment>
+        <header>
+          <h1>Click Counter</h1>
+        </header>
+        <Counter clicks={this.state.clicks} onClick={this.incr} />
+      </Fragment>
+    );
+  }
 }
 
 export default App;
