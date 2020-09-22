@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import Counter from "./Counter";
 
 class App extends React.Component {
   state = {
@@ -13,13 +12,23 @@ class App extends React.Component {
   render() {
     return (
       <Fragment>
-        <header>
-          <h1>Click Counter</h1>
-        </header>
+        <Header />
         <Counter clicks={this.state.clicks} onClick={this.incr} />
       </Fragment>
     );
   }
 }
+
+const Header = () => {
+  return (
+    <header>
+      <h1>Click Counter</h1>
+    </header>
+  );
+};
+
+const Counter = ({ clicks, onClick }) => {
+  return <button onClick={onClick}>{clicks}</button>;
+};
 
 export default App;
